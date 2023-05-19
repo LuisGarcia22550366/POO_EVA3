@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package eva_3_11_blognotas;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.logging.Level;
@@ -129,7 +131,7 @@ public class Aaaaaaaa extends javax.swing.JFrame {
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_formMouseClicked
 
     private void btnOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenActionPerformed
@@ -147,28 +149,54 @@ public class Aaaaaaaa extends javax.swing.JFrame {
                 in = Files.newInputStream(path);
                 isReader = new InputStreamReader(in);
                 bufferedReader = new BufferedReader(isReader);
+                Aaaaaaaa.read(bufferedReader, "Abrir archivo...");
             } catch (IOException ex) {
                 Logger.getLogger(BlocDeNotas.class.getName()).log(Level.SEVERE, null, ex);
-            } finally{
+            } finally {
                 try {
                     bufferedReader.close();
                     isReader.close();
                 } catch (IOException ex) {
                     Logger.getLogger(BlocDeNotas.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
         }
     }//GEN-LAST:event_btnOpenActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-         System.out.println("Guardado!!!");
+
+        JFileChooser fileChooser = new JFileChooser("C:\\Nueva carpeta");
+        int result = fileChooser.showSaveDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+
+            OutputStream out;
+            OutputStreamWriter osWriter = null;
+            BufferedWriter bufferedWriter = null;
+
+            try {
+                Path path = fileChooser.getSelectedFile().toPath();
+                out = Files.newOutputStream(path);
+                osWriter = new OutputStreamWriter(out);
+                bufferedWriter = new BufferedWriter(osWriter);
+                //Aaaaaaaa.write(bufferedWriter);
+            } catch (IOException ex) {
+                Logger.getLogger(BlocDeNotas.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    bufferedWriter.close();
+                    osWriter.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(BlocDeNotas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnCloseActionPerformed
 
     /**
