@@ -151,13 +151,13 @@ public class Aaaaaaaa extends javax.swing.JFrame {
                 bufferedReader = new BufferedReader(isReader);
                 Aaaaaaaa.read(bufferedReader, "Abrir archivo...");
             } catch (IOException ex) {
-                Logger.getLogger(BlocDeNotas.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BLOCKNOTAS.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 try {
                     bufferedReader.close();
                     isReader.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(BlocDeNotas.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(BLOCKNOTAS.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -181,13 +181,13 @@ public class Aaaaaaaa extends javax.swing.JFrame {
                 bufferedWriter = new BufferedWriter(osWriter);
                 //Aaaaaaaa.write(bufferedWriter);
             } catch (IOException ex) {
-                Logger.getLogger(BlocDeNotas.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BLOCKNOTAS.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 try {
                     bufferedWriter.close();
                     osWriter.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(BlocDeNotas.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(BLOCKNOTAS.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
